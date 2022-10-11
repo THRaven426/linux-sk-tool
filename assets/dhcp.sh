@@ -17,7 +17,7 @@ fi
 read -p "¿Quieres descargar el archivo previamente configurado? (S/n)" sn
 if [ $sn = 's' ] || [ $sn = 'S' ]; then
 	echo "Eliminando archivo anterior"
-	sudo rm /etc/dhcpd.com
+	sudo rm /etc/dhcp/dhcpd.conf
 	echo "Añadiendo nuevo archivo"
 	wget https://raw.githubusercontent.com/Harrytx426/linux-sk-tool/main/config/dhcpd.conf -P /etc/dhcp/ 2>/dev/null
 	if [ $? = 0 ]; then
