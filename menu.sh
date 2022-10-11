@@ -31,7 +31,7 @@ submenud() {
             ;;
         "Cambiar IP")
             echo "Has elegido cambiar la IP..."
-            sudo ./cmbip.sh
+            sudo ./assets/cmbip.sh
             ;;
         "Volver")
             return
