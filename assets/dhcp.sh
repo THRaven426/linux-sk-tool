@@ -13,26 +13,6 @@ else
 	return
 fi
 
-read -p "¿Quieres cambiar la interfaz? (S/n): " sn
-sn=${sn:=s}
-case $sn in
-[sS])
-	read -p "Quiere ver las interfaces del equipo? (S/n)" sn
-	if [ $sn = 's' -o $sn = 'S' ]; then
-		ip addr list
-	else
-		echo "Saltando paso..."
-	fi
-	read -p "Cual es la interfaz que vas a utilizar?" intf
-	sed -i "s/INTERFACES=.*/INTERFACES="\"${intf}"\"/g" /etc/default/isc-dhcp-server
-	;;
-[nN])
-	echo exiting...
-	exit
-	;;
-
-esac
-
 read -p "¿Quieres descargar el archivo previamente configurado? (S/n)" sn
 if [ $sn = 's' -o $sn = 'S' ]; then
 	wget https://raw.githubusercontent.com/Harrytx426/dhcp-linuxserver/main/dhcpd.conf -P /etc/dhcp/ 2>/dev/null
@@ -45,6 +25,25 @@ if [ $sn = 's' -o $sn = 'S' ]; then
 else
 	echo "Saltando paso..."
 fi
+read -p "¿Quieres cambiar la interfaz? (S/n): " sn
+sn=${sn:=s}
+case $sn in
+[sS])
+	read -p "Quiere ver las interfaces del equipo? (S/n)" sn
+	if [ $sn = 's' -o $sn = 'S' ]; then
+		ip addr list
+	else
+		echo "Saltando paso..."
+	fi
+	read -p "Cual es la interfaz que vas a utilizar?" intf
+	sed -i "s/INTERFACESv4=.*/INTERFACESv4="\"${intf}"\"/g" /etc/default/isc-dhcp-server
+	;;
+[nN])
+	echo exiting...
+	exit
+	;;
+
+esac
 echo "Deberas cambiar la IP del dispositivo y reiniciar el servicio"
 read -p "¿Quieres cambiar la IP del dispositivo ahora? (S/n)" sn
 if [ $sn = 's' -o $sn = 'S' ]; then
