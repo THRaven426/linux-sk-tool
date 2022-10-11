@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo chmod -R +x ./assets
+sudo chmod -R +x ./assets/
 submenuu() {
     local PS3='Seleccione una opcion: '
     local options=("Almacenamiento" "Actualizar equipo (Solo Administrador)" "Volver")

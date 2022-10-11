@@ -1,10 +1,14 @@
 #!/bin/bash
 echo "Has seleccionado cambiar la IP"
-read -p "Introduce la interfaz a usar: " interfaz
-read -p "introduce la IP: " ip
-read -p "Introduce la mascara: " mascara
-ip a add $ip/$mascara dev $interfaz 2>/dev/null
-if [ $? = 0 ]
-then echo "Cambiado con exito"
-else echo "Algo salió mal"
+
+read -p "Deseas configurar Estatica o DHCP (E/D)" ed
+if [ $ed = 'd' ]||[ $ed = 'D' ]; then
+    cp ../config/DHCP.yaml /etc/netplan/00-installer-config.yaml
+    sudo netplan apply
+elif [ $ed = 'e' ]||[ $ed = 'E' ]; then
+    cp ../config/STATIC.yaml /etc/netplan/00-installer-config.yaml
+    sudo nano /etc/netplan/00-installer-config.yaml
+    sudo netplan apply
+else
+    echo "Algo salió mal"
 fi
