@@ -6,8 +6,8 @@ if [ $ed = 'd' ]||[ $ed = 'D' ]; then
     cp ../config/DHCP.yaml /etc/netplan/00-installer-config.yaml
     sudo netplan apply
 elif [ $ed = 'e' ]||[ $ed = 'E' ]; then
-    cp ../config/STATIC.yaml /etc/netplan/00-installer-config.yaml
-    sudo nano /etc/netplan/00-installer-config.yaml
+    cp ../config/STATIC.yaml /etc/netplan/01-network-manager-all.yaml
+    sudo nano /etc/netplan/01-network-manager-all.yaml
     sudo netplan apply
 else
     echo "Algo salió mal"
