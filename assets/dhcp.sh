@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Se va a instalar el servicio dhcp. ¿Esta seguro?" sn
+read -p "Se va a instalar el servicio dhcp. ¿Esta seguro? (S/n)" sn
 if [ $sn = 's' -o $sn = 'S' ]; then
 	sudo apt install isc-dhcp-server 2>/dev/null
 if [ $? = 0 ]
@@ -15,7 +15,7 @@ fi
 
 read -p "¿Quieres descargar el archivo previamente configurado? (S/n)" sn
 if [ $sn = 's' -o $sn = 'S' ]; then
-	wget https://raw.githubusercontent.com/Harrytx426/dhcp-linuxserver/main/dhcpd.conf -P /etc/dhcp/ 2>/dev/null
+	wget https://github.com/Harrytx426/linux-sk-tool/blob/main/config/dhcpd.conf -P /etc/dhcp/ 2>/dev/null
 	if [ $? = 0 ]; then
 		echo "Descargado con exito"
 	else
@@ -26,26 +26,24 @@ else
 	echo "Saltando paso..."
 fi
 read -p "¿Quieres cambiar la interfaz? (S/n): " sn
-sn=${sn:=s}
 case $sn in
 [sS])
-	read -p "Quiere ver las interfaces del equipo? (S/n)" sn
+	read -p "Quiere ver las interfaces del equipo? (S/n) " sn
 	if [ $sn = 's' -o $sn = 'S' ]; then
 		ip addr list
 	else
 		echo "Saltando paso..."
 	fi
-	read -p "Cual es la interfaz que vas a utilizar?" intf
+	read -p "Cual es la interfaz que vas a utilizar? " intf
 	sed -i "s/INTERFACESv4=.*/INTERFACESv4="\"${intf}"\"/g" /etc/default/isc-dhcp-server
 	;;
 [nN])
-	echo exiting...
-	exit
+	echo "Saltando paso..."
 	;;
 
 esac
 echo "Deberas cambiar la IP del dispositivo y reiniciar el servicio"
-read -p "¿Quieres cambiar la IP del dispositivo ahora? (S/n)" sn
+read -p "¿Quieres cambiar la IP del dispositivo ahora? (S/n) " sn
 if [ $sn = 's' -o $sn = 'S' ]; then
 	sudo ./cmbip.sh 2>/dev/null
 	if [ $? = 0 ]; then
