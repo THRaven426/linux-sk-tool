@@ -4,7 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/Harrytx426/linux-sk-tool)](https://github.com/Harrytx426/linux-sk-tool/stargazers)
 [![GitHub license](https://img.shields.io/github/license/Harrytx426/linux-sk-tool)](https://github.com/Harrytx426/linux-sk-tool/blob/main/LICENSE)
 [![Fuck Russia](https://img.shields.io/badge/Fuck-Russia-green)](https://github.com/Harrytx426/linux-sk-tool/blob/main/LICENSE)
-
+![GitHub all releases](https://img.shields.io/github/downloads/Harrytx426/linux-sk-tool/total?color=blue&label=Descargas)
 > 🟢 **Estado del proyecto**: Funcional
 
 
