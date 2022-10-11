@@ -47,16 +47,4 @@ case $sn in
 
 esac
 echo "Deberas cambiar la IP del dispositivo y reiniciar el servicio"
-read -p "¿Quieres cambiar la IP del dispositivo ahora? (S/n) " sn
-if [ $sn = 's' ] || [ $sn = 'S' ]; then
-	sudo ../cmbip.sh 2>/dev/null
-	if [ $? = 0 ]; then
-		echo "Leyendo ejecutable..."
-	else
-		echo "No tienes permisos de ejecucion"
-	fi
-
-else
-	echo "Saltando paso..."
-fi
 echo "Finalizando."
