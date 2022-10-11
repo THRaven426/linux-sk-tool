@@ -45,7 +45,7 @@ esac
 echo "Deberas cambiar la IP del dispositivo y reiniciar el servicio"
 read -p "¿Quieres cambiar la IP del dispositivo ahora? (S/n) " sn
 if [ $sn = 's' ]||[ $sn = 'S' ]; then
-	sudo ./cmbip.sh 2>/dev/null
+	sudo ../cmbip.sh 2>/dev/null
 	if [ $? = 0 ]; then
 		echo "Leyendo ejecutable..."
 	else
