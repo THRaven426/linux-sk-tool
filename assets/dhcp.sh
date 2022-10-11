@@ -23,7 +23,11 @@ if [ $sn = 's' ] || [ $sn = 'S' ]; then
 	if [ $? = 0 ]; then
 		echo "Descargado con exito"
 	else
-		echo "Algo salió mal"
+		echo "Algo salió mal. Intentando con la configuracion local..."
+		cp ./config/dhcpd.conf /etc/dhcp/dhcpd.conf 2>/dev/null
+		if [ $? != 0 ]; then
+			echo "Algo no salio como se esperaba"
+		fi
 	fi
 
 else
