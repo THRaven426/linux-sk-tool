@@ -3,7 +3,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/Harrytx426/linux-sk-tool)](https://github.com/Harrytx426/linux-sk-tool/network)
 [![GitHub stars](https://img.shields.io/github/stars/Harrytx426/linux-sk-tool)](https://github.com/Harrytx426/linux-sk-tool/stargazers)
 [![GitHub license](https://img.shields.io/github/license/Harrytx426/linux-sk-tool)](https://github.com/Harrytx426/linux-sk-tool/blob/main/LICENSE)
-[![GitHub all releases](https://img.shields.io/github/downloads/Harrytx426/linux-sk-tool/total?color=blue&label=Descargas)
+[![GitHub all releases](https://img.shields.io/github/downloads/Harrytx426/linux-sk-tool/total?color=blue&label=Descargas)]
 > 🟢 **Estado del proyecto**: Funcional
 
 
