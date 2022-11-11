@@ -19,5 +19,5 @@ El resto es la ejecucion se realiza de manera automatica o semi-automatica, por 
 
 ## Download
 
-- 🟢 **[Stable release](https://github.com/Harrytx426/linux-sk-tool/archive/refs/heads/main.zip)**
+- 🟢 **[Stable release](https://github.com/Harrytx426/linux-sk-tool/releases/tag/v3.0)**
 
