@@ -11,7 +11,7 @@ if [ $sn = 's' ] || [ $sn = 'S' ]; then
 else
 	echo "Cancelando..."
 	sleep 1
-	return
+	exit
 fi
 
 read -p "¿Quieres descargar el archivo previamente configurado? (S/n)" sn
@@ -43,12 +43,18 @@ case $sn in
 		echo "Saltando paso..."
 	fi
 	read -p "Cual es la interfaz que vas a utilizar? " intf
-	sed -i "s/INTERFACESv4=.*/INTERFACESv4="\"${intf}"\"/g" /etc/default/isc-dhcp-server
+	sed -i "s/INTERFACESv4=.*/INTERFACESv4="\"${intf}"\"/g" /etc/default/isc-dhcp-server 2>/dev/null
+		if [ $? != 0 ]; then
+			echo "Interfaz cambiada con exito"
+		else
+	echo "Algo no salio como se esperaba"
+	fi
 	;;
 [nN])
 	echo "Saltando paso..."
 	;;
 
 esac
+sleep 3
 echo "Deberas cambiar la IP del dispositivo y reiniciar el servicio"
 echo "Finalizando."
