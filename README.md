@@ -12,6 +12,7 @@ Esta aplicacion sirve para instalar servicios, actualizar nuestro equipo o cambi
 
 ## Como funciona
 Para usarla solamente debemos dar permisos de ejecucion al archivo menu.sh y lanzarlo como **administrador** o **Sudo**. 
+En caso de ser la primera vez que lo descargamos será necesario ejecutar installer.sh. En posteriores usos podremos hacer uso directo del archivo menu.sh
   > <sub> • Esto se debe a que para funcionar, todos nuestros codigos y archivos deben poder ejecutarse, por ello, en vez de dar permisos a toda la carpeta, estos se gestionan automaticamente desde nuestro script. Solamente debemos ejecutar el escript *Menu.sh* y el resto será seguir los pasos segun nuestras necesidades.</sub>
   
 El resto es la ejecucion se realiza de manera automatica o semi-automatica, por lo que el script nos pedira algunos datos en caso de necesitarlos. 
