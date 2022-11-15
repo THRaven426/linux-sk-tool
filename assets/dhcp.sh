@@ -44,7 +44,7 @@ case $sn in
 	fi
 	read -p "Cual es la interfaz que vas a utilizar? " intf
 	sed -i "s/INTERFACESv4=.*/INTERFACESv4="\"${intf}"\"/g" /etc/default/isc-dhcp-server 2>/dev/null
-		if [ $? != 0 ]; then
+		if [ $? = 0 ]; then
 			echo "Interfaz cambiada con exito"
 		else
 	echo "Algo no salio como se esperaba"
@@ -58,3 +58,4 @@ esac
 sleep 3
 echo "Deberas cambiar la IP del dispositivo y reiniciar el servicio"
 echo "Finalizando."
+sleep 3
